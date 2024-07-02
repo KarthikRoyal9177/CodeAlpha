@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class GradeAnalyzer {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> marks = new ArrayList<>();
+
+        // Prompting user for number of students
+        System.out.print("Enter the number of students: ");
+        int n = scanner.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter grade of student " + (i + 1) + ": ");
+            int mark = scanner.nextInt();
+            marks.add(mark);
+        }
+
+        // Printing grades entered in ArrayList
+        System.out.print("Grades entered: ");
+        for (int mark : marks) {
+            System.out.print(mark + " ");
+        }
+        System.out.println();
+
+        // Calculating average grade
+        double sum = 0;
+        for (int mark : marks) {
+            sum += mark;
+        }
+        double average = sum / n;
+        System.out.println("Average grade: " + average);
+
+        // Calculating highest grade
+        int highest = Collections.max(marks);
+        System.out.println("Highest grade: " + highest);
+
+        // Calculating lowest grade
+        int lowest = Collections.min(marks);
+        System.out.println("Lowest grade: " + lowest);
+
+        scanner.close();
+    }
+}
